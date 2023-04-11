@@ -15,5 +15,11 @@ router.get('/', async (req, res) => {
     visits: newVal,
   })
 })
+router.get('/statistics', async (req, res) => {
+  const added_todos = await getAsync('added_todos')
+  res.send({
+    added_todos: added_todos,
+  })
+})
 
 module.exports = router
