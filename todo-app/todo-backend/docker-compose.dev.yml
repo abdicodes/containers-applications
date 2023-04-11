@@ -16,5 +16,8 @@ services:
     image: redis
     ports:
       - 5002:6379
+    command: ['redis-server', '--appendonly', 'yes'] # Overwrite the CMD
+    volumes:
+      - ./redis_data:/data
 volumes:
   mongo_data:

@@ -4,7 +4,7 @@ const router = express.Router()
 const configs = require('../util/config')
 const { getAsync, setAsync } = require('../redis')
 
-setAsync('visits', 0)
+// setAsync('visits', 0)
 /* GET index data. */
 router.get('/', async (req, res) => {
   const visitNum = await getAsync('visits')

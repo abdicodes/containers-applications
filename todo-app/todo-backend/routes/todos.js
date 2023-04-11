@@ -3,7 +3,7 @@ const { Todo } = require('../mongo')
 const { getAsync, setAsync } = require('../redis')
 const router = express.Router()
 
-setAsync('added_todos', 0)
+// setAsync('added_todos', 0)
 /* GET todos listing. */
 router.get('/', async (_, res) => {
   const todos = await Todo.find({})

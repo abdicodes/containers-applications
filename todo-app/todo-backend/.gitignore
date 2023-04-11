@@ -63,3 +63,4 @@ typings/
 
 #DS 
 .DS_Store
+redis_data
