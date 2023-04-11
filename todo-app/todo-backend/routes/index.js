@@ -1,18 +1,19 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
 const configs = require('../util/config')
+const { getAsync, setAsync } = require('../redis')
 
-let visits = 0
-
+setAsync('visits', 0)
 /* GET index data. */
 router.get('/', async (req, res) => {
-  visits++
-
+  const visitNum = await getAsync('visits')
+  await setAsync('visits', Number(visitNum) + 1)
+  const newVal = await getAsync('visits')
   res.send({
     ...configs,
-    visits
-  });
-});
+    visits: newVal,
+  })
+})
 
-module.exports = router;
+module.exports = router
