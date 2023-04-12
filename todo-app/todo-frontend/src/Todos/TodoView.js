@@ -32,6 +32,7 @@ const TodoView = () => {
       text: todo.text,
       done: true,
     })
+
     refreshTodos()
   }
 
